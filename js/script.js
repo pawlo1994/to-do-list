@@ -50,8 +50,8 @@
                 <span class=
                 ${task.done ? "\"taskList__span taskList__span--done\">" : "\"taskList__span\">"}
             ${task.content}</span>
-                </p>
-                <button class="taskList__button taskList__button--remove js-remove">&#128465;</button>              
+                <button class="taskList__button taskList__button--remove js-remove">&#128465;</button>    
+                </p>          
             </li>
             `;
         }
@@ -59,18 +59,20 @@
         bindEvents();
     };
 
-
+    const clearInput = (newTask) => {
+        newTask.value = "";
+        newTask.focus();
+    }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         const newTask = document.querySelector(".js-newTask");
         const newTaskContent = newTask.value.trim();
         if (!newTaskContent) {
-            newTask.focus();
+            clearInput(newTask);
             return;
         }
-        newTask.value = "";
-        newTask.focus();
+        clearInput(newTask);
         addNewTask(newTaskContent);
     };
 
