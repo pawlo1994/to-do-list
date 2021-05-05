@@ -1,13 +1,15 @@
 .taskList {
+    width: 80%;
     list-style-type: none;
+    margin: 5px auto;
+    padding: 5px 0;
 }
 
 .taskList__item {
-    margin: auto;
+    margin-bottom: 10px;
 }
 
 .taskList__paragraph {
-    width: 80%;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 30px 70% 30px;
