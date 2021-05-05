@@ -1,0 +1,35 @@
+.form {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form__input {
+    flex-basis: 80%;
+    padding: 10px;
+}
+
+@media(max-width: 767px) {
+    .form__input {
+        margin-bottom: 10px;
+        flex-basis: 90%;
+    }
+}
+
+.form__button {
+    flex-basis: 15%;
+    padding: 10px;
+    background-color: teal;
+    color: #fff;
+    border: none;
+}
+
+@media(max-width: 767px) {
+    .form__button {
+        margin-bottom: 10px;
+        flex-basis: 90%;
+    }
+}
