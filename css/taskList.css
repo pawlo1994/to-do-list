@@ -3,17 +3,15 @@
 }
 
 .taskList__item {
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    margin: auto;
 }
 
 .taskList__paragraph {
-    width: 90%;
+    width: 80%;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 30px 80% 30px;
+    grid-template-columns: 30px 70% 30px;
+    align-content: center;
     align-items: center;
     justify-content: center;
 }
