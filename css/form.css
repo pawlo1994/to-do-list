@@ -5,6 +5,12 @@
     align-items: center;
 }
 
+@media(max-width: 767px){
+	.form{
+		justify-content: center;
+	}
+}
+
 .form__input {
     flex-basis: 75%;
     padding: 10px;
