@@ -1,5 +1,4 @@
 .form {
-    margin: 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -13,8 +12,8 @@
 
 @media(max-width: 767px) {
     .form__input {
-        margin-bottom: 10px;
         flex-basis: 90%;
+        margin-bottom: 10px;
     }
 }
 
@@ -26,14 +25,14 @@
     border: none;
 }
 
-.form__button:hover {
-    background-color: hsl(180, 100%, 35%);
-    cursor: pointer;
-}
-
 @media(max-width: 767px) {
     .form__button {
         margin-bottom: 10px;
         flex-basis: 90%;
     }
+}
+
+.form__button:hover {
+    background-color: hsl(180, 100%, 35%);
+    cursor: pointer;
 }
