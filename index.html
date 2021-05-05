@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/section.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/taskList.css">
+    <link rel="stylesheet" href="css/container.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -21,21 +22,23 @@
 </head>
 
 <body>
-    <header class="header">
-        <h1 class="header__text">Lista Zadań</h1>
-    </header>
-    <section class="section">
-        <h2 class="section__header">Dodaj nowe zadanie</h2>
-        <form class="form js-form">
-            <input class="form__input js-newTask">
-            <button class="form__button js-addTaskButton">Dodaj zadanie</button>
-        </form>
-    </section>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__text">Lista Zadań</h1>
+        </header>
+        <section class="section">
+            <h2 class="section__header">Dodaj nowe zadanie</h2>
+            <form class="form js-form">
+                <input class="form__input js-newTask">
+                <button class="form__button js-addTaskButton">Dodaj zadanie</button>
+            </form>
+        </section>
 
-    <section class="section">
-        <h2 class="section__header">Lista zadań</h2>
-        <ul class="taskList js-tasks"></ul>
-    </section>
+        <section class="section">
+            <h2 class="section__header">Lista zadań</h2>
+            <ul class="taskList js-tasks"></ul>
+        </section>
+    </div>
 </body>
 
 </html>
