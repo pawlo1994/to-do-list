@@ -7,9 +7,6 @@
 
 .taskList__item {
     margin-bottom: 10px;
-}
-
-.taskList__paragraph {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 30px 70% 30px;
