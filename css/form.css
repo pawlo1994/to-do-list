@@ -1,24 +1,24 @@
 .form {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
 
-@media(max-width: 767px){
-	.form{
-		justify-content: center;
-	}
+@media(max-width: 767px) {
+    .form {
+        flex-direction: column;
+    }
 }
 
 .form__input {
-    flex-basis: 75%;
+    flex-basis: 70%;
     padding: 10px;
 }
 
 @media(max-width: 767px) {
     .form__input {
-        flex-basis: 90%;
+        flex-basis: 40px;
+        width: 80%;
         margin-bottom: 10px;
     }
 }
@@ -33,8 +33,9 @@
 
 @media(max-width: 767px) {
     .form__button {
+        flex-basis: 40px;
+        width: 80%;
         margin-bottom: 10px;
-        flex-basis: 90%;
     }
 }
 
