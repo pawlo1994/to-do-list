@@ -96,12 +96,10 @@
         event.preventDefault();
         const newTaskElement = document.querySelector(".js-newTask");
         const newTaskContent = newTaskElement.value.trim();
-        if (!newTaskContent) {
-            clearInput(newTaskElement);
-            return;
-        }
         clearInput(newTaskElement);
-        addNewTask(newTaskContent);
+        if (newTaskContent) {
+            addNewTask(newTaskContent);
+        }
     };
 
     const init = () => {
