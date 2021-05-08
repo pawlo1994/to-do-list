@@ -21,7 +21,19 @@
         render();
     };
 
-    const bindEvents = () => {
+    const toggleTaskContentDone = (taskContent, taskIndex) => {
+        if (tasks[taskIndex].done) {
+            taskContent.classList.add("taskList__span--done");
+        }
+    };
+
+    const toggleTaskButtonTextDone = (taskButtonText, taskIndex) => {
+        if (tasks[taskIndex].done) {
+            taskButtonText.classList.add("taskList__buttonSpan--done");
+        }
+    };
+
+    const bindButtonEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButton, index) => {
@@ -39,22 +51,40 @@
         });
     };
 
+    const bindTaskEvents = () => {
+        const taskContents = document.querySelectorAll(".js-taskContent");
+
+        taskContents.forEach((taskContent, index) => {
+            toggleTaskContentDone(taskContent, index);
+        });
+
+        const taskButtonTexts = document.querySelectorAll(".js-taskButtonText");
+
+        taskButtonTexts.forEach((taskButtonText, index) => {
+            toggleTaskButtonTextDone(taskButtonText, index);
+        });
+    };
+
     const render = () => {
         let htmlString = "";
         for (const task of tasks) {
             htmlString += `
             <li class="taskList__item">
                 <button class="taskList__button taskList__button--done js-done">
-                ${task.done ? "&check;" : "&nbsp;"} </button>
-                <span class=
-                ${task.done ? "\"taskList__span taskList__span--done\">" : "\"taskList__span\">"}
-            ${task.content}</span>
-                <button class="taskList__button taskList__button--remove js-remove">&#128465;</button>            
+                    <span class="taskList__buttonSpan js-taskButtonText">&check;</span>
+                </button>
+                <span class="taskList__span js-taskContent">
+                    ${task.content}
+                </span>
+                <button class="taskList__button taskList__button--remove js-remove">
+                    &#128465;
+                </button>            
             </li>
             `;
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
-        bindEvents();
+        bindButtonEvents();
+        bindTaskEvents();
     };
 
     const clearInput = (newTask) => {
@@ -64,13 +94,13 @@
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        const newTask = document.querySelector(".js-newTask");
-        const newTaskContent = newTask.value.trim();
+        const newTaskElement = document.querySelector(".js-newTask");
+        const newTaskContent = newTaskElement.value.trim();
         if (!newTaskContent) {
-            clearInput(newTask);
+            clearInput(newTaskElement);
             return;
         }
-        clearInput(newTask);
+        clearInput(newTaskElement);
         addNewTask(newTaskContent);
     };
 
