@@ -2,25 +2,31 @@
     margin: 0 auto;
     font-size: 16px;
     padding: 20px;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    align-items: center;
-    justify-content: center;
-    grid-gap: 20px;
+    display: flex;
 }
 
 @media(max-width: 767px) {
     .form {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 }
 
 .form__input {
+    flex-grow: 4;
+    margin-right: 20px;
     padding: 10px;
     border: 1px solid #ccc;
 }
 
+@media(max-width: 767px) {
+    .form__input {
+        margin: 0 0 10px;
+    }
+}
+
 .form__button {
+    flex-grow: 0;
+    flex-shrink: 0;
     padding: 10px;
     background-color: hsl(180, 100%, 25%);
     color: #fff;
