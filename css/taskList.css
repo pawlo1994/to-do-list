@@ -14,7 +14,7 @@
 }
 
 .taskList__span {
-    word-break: break-all;
+    word-break: keep-all;
     overflow-wrap: anywhere;
 }
 
