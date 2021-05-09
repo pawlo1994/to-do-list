@@ -5,10 +5,10 @@
 }
 
 .taskList__item {
-    padding: 10px 0;
+    padding: 10px;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-columns: 30px 1fr 30px;
     align-items: center;
     border-bottom: 1px solid #aaa;
 }
