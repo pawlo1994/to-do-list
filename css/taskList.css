@@ -14,8 +14,9 @@
 }
 
 .taskList__span {
-    word-break: break-all;
-    overflow-wrap: anywhere;
+    color: #333;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .taskList__span--done {
