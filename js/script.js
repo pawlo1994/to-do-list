@@ -71,13 +71,13 @@
             htmlString += `
             <li class="taskList__item">
                 <button class="taskList__button taskList__button--done js-done">
-                    <span class="taskList__buttonSpan js-taskButtonText">&check;</span>
+                    <span class="taskList__buttonSpan js-taskButtonText">✔</span>
                 </button>
                 <span class="taskList__span js-taskContent">
                     ${task.content}
                 </span>
                 <button class="taskList__button taskList__button--remove js-remove">
-                    &#128465;
+                    🗑
                 </button>            
             </li>
             `;
