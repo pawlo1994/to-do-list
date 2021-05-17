@@ -8,7 +8,7 @@
     padding: 10px;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 35px 1fr 35px;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     border-bottom: 2px solid #ddd;
 }
@@ -27,17 +27,11 @@
 .taskList__button {
     display: flex;
     padding: 7px;
+    width: 35px;
+    height: 35px;
     justify-content: center;
     align-items: center;
     border: none;
-}
-
-.taskList__buttonSpan {
-    opacity: 0;
-}
-
-.taskList__buttonSpan--done {
-    opacity: 1;
 }
 
 .taskList__button:hover {
