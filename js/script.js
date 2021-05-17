@@ -1,7 +1,5 @@
 {
-    const tasks = [
-
-    ];
+    const tasks = [];
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
@@ -19,18 +17,6 @@
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
-    };
-
-    const toggleTaskContentDone = (taskContent, taskIndex) => {
-        if (tasks[taskIndex].done) {
-            taskContent.classList.add("taskList__span--done");
-        }
-    };
-
-    const toggleTaskButtonTextDone = (taskButtonText, taskIndex) => {
-        if (tasks[taskIndex].done) {
-            taskButtonText.classList.add("taskList__buttonSpan--done");
-        }
     };
 
     const bindButtonEvents = () => {
@@ -51,29 +37,15 @@
         });
     };
 
-    const bindTaskEvents = () => {
-        const taskContents = document.querySelectorAll(".js-taskContent");
-
-        taskContents.forEach((taskContent, index) => {
-            toggleTaskContentDone(taskContent, index);
-        });
-
-        const taskButtonTexts = document.querySelectorAll(".js-taskButtonText");
-
-        taskButtonTexts.forEach((taskButtonText, index) => {
-            toggleTaskButtonTextDone(taskButtonText, index);
-        });
-    };
-
     const render = () => {
         let htmlString = "";
         for (const task of tasks) {
             htmlString += `
             <li class="taskList__item">
                 <button class="taskList__button taskList__button--done js-done">
-                    <span class="taskList__buttonSpan js-taskButtonText">✔</span>
+                    ${task.done ? "✔" : "&nbsp;"}
                 </button>
-                <span class="taskList__span js-taskContent">
+                <span class="${task.done ? "taskList__span  taskList__span--done js-taskContent" : "taskList__span js-taskContent"}" >
                     ${task.content}
                 </span>
                 <button class="taskList__button taskList__button--remove js-remove">
@@ -84,7 +56,6 @@
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
         bindButtonEvents();
-        bindTaskEvents();
     };
 
     const clearInput = (newTask) => {
