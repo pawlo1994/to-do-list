@@ -10,54 +10,5 @@
     margin: 0;
     padding: 20px;
     font-size: 24px;
-}
-
-.section__article {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: 2px solid #ddd;
-}
-
-@media(max-width: 767px) {
-    .section__article {
-        flex-direction: column;
-    }
-}
-
-.buttonList {
-    display: flex;
-    list-style-type: none;
-}
-
-.buttonList--hidden {
-    display: none;
-}
-
-@media(max-width: 767px) {
-    .buttonList {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
-}
-
-.buttonList__button {
-    margin: 0 10px;
-    background-color: transparent;
-    border: none;
-    color: hsl(180, 100%, 30%);
-    transition: color 0.3s;
-}
-
-@media(max-width: 767px) {
-    .buttonList__button {
-        margin: 10px 0;
-    }
-}
-
-.buttonList__button:hover {
-    cursor: pointer;
-    color: hsl(180, 100%, 40%);
 }
