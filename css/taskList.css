@@ -32,7 +32,7 @@
     justify-content: center;
     align-items: center;
     border: none;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 .taskList__button:hover {
