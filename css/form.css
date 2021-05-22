@@ -31,10 +31,13 @@
     background-color: hsl(180, 100%, 25%);
     color: #fff;
     border: none;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .form__button:hover {
     cursor: pointer;
+    background-color: hsl(180, 100%, 30%);
+    transform: scale(1.1);
 }
 
 .form__button:active {
