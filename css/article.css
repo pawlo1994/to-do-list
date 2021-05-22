@@ -1,0 +1,19 @@
+.article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding: 0 20px;
+}
+
+@media(max-width: 767px) {
+    .article {
+        flex-direction: column;
+    }
+}
+
+.article__header {
+    padding: 0;
+    font-size: 24px;
+    align-self: flex-start;
+}
