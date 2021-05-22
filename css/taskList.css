@@ -32,6 +32,7 @@
     justify-content: center;
     align-items: center;
     border: none;
+    transition: 0.3s;
 }
 
 .taskList__button:hover {
@@ -47,7 +48,15 @@
     color: #fff;
 }
 
+.taskList__button--done:hover {
+    background-color: #0c0;
+}
+
 .taskList__button--remove {
     background-color: #f00;
     color: #fff;
+}
+
+.taskList__button--remove:hover {
+    background-color: #f60;
 }
