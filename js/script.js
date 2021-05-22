@@ -54,17 +54,10 @@
         });
     };
 
-    const bindTaskDoneButtonEvents = (editIndex, buttonList) => {
+    const bindTaskDoneButtonEvents = (buttonList) => {
         if (!tasks.length) { buttonList.classList.add("buttonList--hidden"); }
         else { buttonList.classList.remove("buttonList--hidden"); };
-
-        const doneAllTasksButton = document.querySelector(".js-doneAllTasksButton");
-
-        doneAllTasksButton.addEventListener("click", () => {
-            toggleAllTasksDone(editIndex);
-            doneAllTasksButton.disabled = true;
-        });
-    }
+    };
 
     const renderTask = () => {
         let htmlTextString = "";
@@ -74,7 +67,7 @@
                 <button class="taskList__button taskList__button--done js-done">
                     ${task.done ? "✔" : "&nbsp;"}
                 </button>
-                <span class="${task.done ? "taskList__span  taskList__span--done js-taskContent" : "taskList__span js-taskContent"}" >
+                <span class="taskList__span js-taskContent ${task.done ? "taskList__span--done" : ""}" >
                     ${task.content}
                 </span>
                 <button class="taskList__button taskList__button--remove js-remove">
@@ -86,25 +79,26 @@
         document.querySelector(".js-tasks").innerHTML = htmlTextString;
     };
 
-    const renderTaskDoneButtons = (editIndex, buttonList) => {
-        const htmlButtonString = `
+    const renderTaskDoneButtons = (buttonList) => {
+        let htmlButtonString = "";
+        htmlButtonString = `
         <li class="buttonList__item">
             <button class="buttonList__button js-toggleDoneTasksButton">
-                Pokaż ukończone
+               Ukryj ukończone
             </button>
         </li>
         <li class="buttonList__item">
             <button class="buttonList__button js-doneAllTasksButton">
-                Zakończ wszystkie
+                Ukończ wszystkie
             </button>
         </li>`;
         buttonList.innerHTML = htmlButtonString;
-        bindTaskDoneButtonEvents(editIndex, buttonList);
+        bindTaskDoneButtonEvents(buttonList);
     };
-    const render = (editIndex) => {
+    const render = () => {
         const buttonList = document.querySelector(".js-buttonList");
         renderTask();
-        renderTaskDoneButtons(editIndex, buttonList);
+        renderTaskDoneButtons(buttonList);
         bindTaskButtonEvents();
     };
 
