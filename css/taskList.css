@@ -13,10 +13,13 @@
     border-bottom: 2px solid #ddd;
 }
 
+.taskList__item--hidden {
+    display: none;
+}
+
 .taskList__span {
     color: #333;
     word-break: break-all;
-    font-size: 20px;
     padding: 0 5px;
 }
 
@@ -26,9 +29,9 @@
 
 .taskList__button {
     display: flex;
-    padding: 7px;
-    width: 35px;
-    height: 35px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
     justify-content: center;
     align-items: center;
     border: none;
