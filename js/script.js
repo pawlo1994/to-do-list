@@ -82,9 +82,18 @@
                     done: false,
                 };
             };
+            render();
         };
-        render();
     };
+
+    const toggleDoneTasks = () => {
+        const taskListItemsDone = document.querySelectorAll(".js-taskListItemDone");
+        const buttonListSpan = document.querySelector(".js-buttonListSpan");
+        taskListItemsDone.forEach((taskListItemDone) => {
+            taskListItemDone.classList.toggle("taskList__item--hidden");
+            buttonListSpan.innerText = taskListItemDone.classList.contains("taskList__item--hidden") ? "Pokaż" : "Ukryj";
+        });
+    }
 
     const toggleDoneTasksButtons = buttonList => {
         if (!tasks.length) { buttonList.classList.add("buttonList--hidden"); }
@@ -96,6 +105,9 @@
 
         const doneAllTasksButton = document.querySelector(".js-doneAllTasksButton");
         doneAllTasksButton.addEventListener("click", toggleAllTasksDone);
+
+        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
+        toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
     };
 
     const renderTaskDoneButtons = (buttonList) => {
