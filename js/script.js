@@ -48,7 +48,7 @@
         let htmlTextString = "";
         for (const task of tasks) {
             htmlTextString += `
-            <li class="taskList__item ${task.done ? "js-taskListItemDone" : ""}">
+            <li class="taskList__item js-taskListItem ${task.done ? "js-taskListItemDone" : ""}">
                 <button class="taskList__button taskList__button--done js-done">
                     ${task.done ? "✔" : "&nbsp;"}
                 </button>
@@ -64,28 +64,6 @@
         document.querySelector(".js-tasks").innerHTML = htmlTextString;
     };
 
-    const toggleAllTasksDone = () => {
-        const areAllTasksDone = tasks.every(({ done }) => done);
-        if (!areAllTasksDone) {
-            doneAllTasksButton.disabled = true;
-            for (let task of tasks) {
-                task = {
-                    ...task,
-                    done: true,
-                };
-            };
-        } else {
-            doneAllTasksButton.disabled = false;
-            for (let task of tasks) {
-                task = {
-                    ...task,
-                    done: false,
-                };
-            };
-            render();
-        };
-    };
-
     const toggleDoneTasks = () => {
         const taskListItemsDone = document.querySelectorAll(".js-taskListItemDone");
         const buttonListSpan = document.querySelector(".js-buttonListSpan");
@@ -93,7 +71,7 @@
             taskListItemDone.classList.toggle("taskList__item--hidden");
             buttonListSpan.innerText = taskListItemDone.classList.contains("taskList__item--hidden") ? "Pokaż" : "Ukryj";
         });
-    }
+    };
 
     const toggleDoneTasksButtons = buttonList => {
         if (!tasks.length) { buttonList.classList.add("buttonList--hidden"); }
@@ -102,9 +80,6 @@
 
     const bindTaskDoneButtonEvents = buttonList => {
         toggleDoneTasksButtons(buttonList);
-
-        const doneAllTasksButton = document.querySelector(".js-doneAllTasksButton");
-        doneAllTasksButton.addEventListener("click", toggleAllTasksDone);
 
         const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
         toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
