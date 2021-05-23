@@ -78,16 +78,13 @@
         else { buttonList.classList.remove("buttonList--hidden"); };
     };
 
-    const bindTaskDoneButtonEvents = buttonList => {
-        toggleDoneTasksButtons(buttonList);
-
+    const bindTaskDoneButtonEvents = () => {
         const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
         toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
     };
 
-    const renderTaskDoneButtons = (buttonList) => {
-        let htmlButtonString = "";
-        htmlButtonString = `
+    const renderTaskDoneButtons = buttonList => {
+        buttonList.innerHTML = `
         <li class="buttonList__item">
             <button class="buttonList__button js-toggleDoneTasksButton">
                <span class="js-buttonListSpan">Ukryj</span> ukończone
@@ -98,8 +95,6 @@
                 Ukończ wszystkie
             </button>
         </li>`;
-        buttonList.innerHTML = htmlButtonString;
-        bindTaskDoneButtonEvents(buttonList);
     };
 
     const render = () => {
@@ -107,7 +102,8 @@
         renderTaskContent();
         renderTaskDoneButtons(buttonList);
         bindTaskButtonEvents();
-        bindTaskDoneButtonEvents(buttonList);
+        bindTaskDoneButtonEvents();
+        toggleDoneTasksButtons(buttonList);
     };
 
     const clearInput = (newTask) => {
