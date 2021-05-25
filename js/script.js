@@ -74,6 +74,16 @@
         });
     };
 
+    const doneAllTasks = () => {
+        for (let task of tasks) {
+            for (done in tasks) {
+                console.log(done);
+                task = { done: true, };
+            };
+        };
+        render();
+    };
+
     const toggleDoneTasksButtons = buttonList => {
         if (!tasks.length) { buttonList.classList.add("buttonList--hidden"); }
         else { buttonList.classList.remove("buttonList--hidden"); };
@@ -93,13 +103,15 @@
         </li>`;
         const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
         toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
+        const doneAllTasksButton = document.querySelector(".js-doneAllTasksButton");
+        doneAllTasksButton.addEventListener("click", doneAllTasks);
+        toggleDoneTasksButtons(buttonList);
     };
 
     const render = () => {
         const buttonList = document.querySelector(".js-buttonList");
-        renderTaskContent();
         renderTaskDoneButtons(buttonList);
-        toggleDoneTasksButtons(buttonList);
+        renderTaskContent();
     };
 
     const clearInput = (newTask) => {
