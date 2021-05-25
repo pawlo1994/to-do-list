@@ -62,6 +62,7 @@
             `;
         }
         document.querySelector(".js-tasks").innerHTML = htmlTextString;
+        bindTaskButtonEvents();
     };
 
     const toggleDoneTasks = () => {
@@ -78,11 +79,6 @@
         else { buttonList.classList.remove("buttonList--hidden"); };
     };
 
-    const bindTaskDoneButtonEvents = () => {
-        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
-        toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
-    };
-
     const renderTaskDoneButtons = buttonList => {
         buttonList.innerHTML = `
         <li class="buttonList__item">
@@ -95,14 +91,14 @@
                 Ukończ wszystkie
             </button>
         </li>`;
+        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
+        toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
     };
 
     const render = () => {
         const buttonList = document.querySelector(".js-buttonList");
         renderTaskContent();
         renderTaskDoneButtons(buttonList);
-        bindTaskButtonEvents();
-        bindTaskDoneButtonEvents();
         toggleDoneTasksButtons(buttonList);
     };
 
