@@ -38,3 +38,8 @@
     cursor: pointer;
     color: hsl(180, 100%, 35%);
 }
+
+[disabled=true] {
+    color: #999;
+    pointer-events: none;
+}
