@@ -75,12 +75,20 @@
     };
 
     const doneAllTasks = () => {
-        for (let i = 1; i <= tasks.length; i++) {
+        if (tasks.some(({ done }) => !done)) {
             tasks = [
-                !tasks[i].done ? { ...tasks[i], done: true } : { ...tasks[i], done: false },
+                { done: true },
             ];
         };
         render();
+    };
+
+    const bindTaskDoneButtonsEvents = () => {
+        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
+        const doneAllTasksButton = document.querySelector(".js-doneAllTasksButton");
+
+        toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
+        doneAllTasksButton.addEventListener("click", doneAllTasks);
     };
 
     const toggleDoneTasksButtons = buttonList => {
@@ -96,21 +104,18 @@
             </button>
         </li>
         <li class="buttonList__item">
-            <button class="buttonList__button js-doneAllTasksButton" disabled="${tasks.every(({ done }) => done) ? true : false}">
+            <button class="buttonList__button js-doneAllTasksButton" ${tasks.every(({ done }) => done) ? "disabled" : ""}>
                 Ukończ wszystkie
             </button>
         </li>`;
-        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasksButton");
-        toggleDoneTasksButton.addEventListener("click", toggleDoneTasks);
-        const doneAllTasksButton = document.querySelector(".js-doneAllTasksButton");
-        doneAllTasksButton.addEventListener("click", doneAllTasks);
-        toggleDoneTasksButtons(buttonList);
+        bindTaskDoneButtonsEvents();
     };
 
     const render = () => {
         const buttonList = document.querySelector(".js-buttonList");
         renderTaskDoneButtons(buttonList);
         renderTaskContent();
+        toggleDoneTasksButtons(buttonList);
     };
 
     const clearInput = (newTask) => {
