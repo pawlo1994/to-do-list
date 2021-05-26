@@ -4,7 +4,10 @@
     const addNewTask = (newTaskContent) => {
         tasks = [
             ...tasks,
-            { content: newTaskContent, },
+            {
+                content: newTaskContent,
+                done: false,
+            },
         ];
         render();
     };
@@ -75,10 +78,11 @@
     };
 
     const doneAllTasks = () => {
-        if (tasks.some(({ done }) => !done)) {
-            tasks = [
-                { done: true },
-            ];
+        if (tasks.find(task => !task.done)) {
+            tasks.forEach((task, index) => {
+                const doneTask = { ...task, done: true, };
+                tasks[index] = doneTask;
+            });
         };
         render();
     };
