@@ -75,11 +75,10 @@
     };
 
     const doneAllTasks = () => {
-        for (let task of tasks) {
-            for (done in tasks) {
-                console.log(done);
-                task = { done: true, };
-            };
+        for (let i = 1; i <= tasks.length; i++) {
+            tasks = [
+                !tasks[i].done ? { ...tasks[i], done: true } : { ...tasks[i], done: false },
+            ];
         };
         render();
     };
@@ -97,7 +96,7 @@
             </button>
         </li>
         <li class="buttonList__item">
-            <button class="buttonList__button js-doneAllTasksButton" disabled="false">
+            <button class="buttonList__button js-doneAllTasksButton" disabled="${tasks.every(({ done }) => done) ? true : false}">
                 Ukończ wszystkie
             </button>
         </li>`;
