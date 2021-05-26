@@ -22,3 +22,7 @@ Simple To Do List App.
 ![done task gif](images/doneTask.gif)
 4. If you want to delete your task, click on red button with trash.
 ![delete task gif](images/deleteTask.gif)
+5. If you want to done all tasks, click on "ukończ wszystkie" button.
+![done all tasks gif](images/doneAllTasks.gif)
+6. If you want to hide done tasks, click on "ukryj ukończone". If you want to show them again, click on "pokaż ukończone".
+![toggle done tasks gif](images/toggleDoneTasks.gif)
