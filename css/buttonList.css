@@ -39,7 +39,8 @@
     color: hsl(180, 100%, 35%);
 }
 
-[disabled=true] {
+.buttonList__button:disabled {
     color: #999;
     pointer-events: none;
+    user-select: none;
 }
