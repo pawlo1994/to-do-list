@@ -49,7 +49,7 @@
         let htmlTextString = "";
         for (const task of tasks) {
             htmlTextString += `
-            <li class="taskList__item js-taskListItem ${hideDoneTasks && task.done ? "js-taskListItemDone taskList__item--hidden" : ""} ${task.done ? "js-taskListItemDone" : ""}">
+            <li class="taskList__item js-taskListItem ${hideDoneTasks && task.done ? "taskList__item--hidden" : ""}">
                 <button class="taskList__button taskList__button--done js-done">
                     ${task.done ? "✔" : ""}
                 </button>
