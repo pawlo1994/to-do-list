@@ -66,7 +66,9 @@
     };
 
     const toggleDoneTasks = () => {
-        hideDoneTasks = !hideDoneTasks;
+        if (tasks.some(({ done }) => done)) {
+            hideDoneTasks = !hideDoneTasks;
+        };
         render();
     };
 
