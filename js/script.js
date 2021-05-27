@@ -89,19 +89,15 @@
         markAllTasksDoneButton.addEventListener("click", doneAllTasks);
     };
 
-    const toggleButtons = buttonContainer => {
-        if (!tasks.length) { buttonContainer.classList.add("buttonContainer--hidden"); }
-        else { buttonContainer.classList.remove("buttonContainer--hidden"); };
-    };
-
-    const renderButtons = buttonList => {
-        buttonList.innerHTML = `
-            <button class="button js-toggleDoneTasksButton">
+    const renderButtons = buttonContainer => {
+        buttonContainer.innerHTML = `
+            <button class="button js-toggleDoneTasksButton ${!tasks.length ? "button--hidden" : ""}">
                ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
             </button>
-            <button class="button js-markAllTasksDoneButton" ${tasks.every(({ done }) => done) ? "disabled" : ""}>
-                Ukończ wszystkie
-            </button>`;
+            <button class="button js-markAllTasksDoneButton ${!tasks.length ? "button--hidden" : ""}" 
+            ${tasks.every(({ done }) => done) ? "disabled" : ""}>
+            Ukończ wszystkie
+            </button > `;
     };
 
     const render = () => {
@@ -109,7 +105,6 @@
         renderTasks();
         renderButtons(buttonContainer);
         bindTaskButtonEvents();
-        toggleButtons(buttonContainer);
         bindButtonsEvents();
     };
 
