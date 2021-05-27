@@ -21,7 +21,7 @@
     const toggleTaskDone = (editIndex) => {
         tasks = [
             ...tasks.slice(0, editIndex),
-            !tasks[editIndex].done ? { ...tasks[editIndex], done: true } : { ...tasks[editIndex], done: false },
+            { ...tasks[editIndex], done: !tasks[editIndex].done },
             ...tasks.slice(editIndex + 1),
         ];
         render();
