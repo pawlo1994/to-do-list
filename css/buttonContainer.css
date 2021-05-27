@@ -11,10 +11,6 @@
     }
 }
 
-.buttonContainer--hidden {
-    display: none;
-}
-
 .button {
     cursor: pointer;
     padding-left: 20px;
@@ -29,6 +25,10 @@
         padding-left: 0;
         padding-bottom: 15px;
     }
+}
+
+.button--hidden {
+    display: none;
 }
 
 .button:hover {
